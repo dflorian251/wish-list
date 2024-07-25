@@ -18,8 +18,13 @@ export class AppComponent {
   title = 'wish-list';
 
   wishes:  WishItem[] = [
-    // new WishItem('Na parw kafe'),
-    // new WishItem('Na parw cafeihnh', true),
-    // new WishItem('Na parw mia Vespa Primavera', false),
+    new WishItem('Na parw kafe'),
+    new WishItem('Na parw cafeihnh', true),
+    new WishItem('Na parw mia Vespa Primavera', false),
   ];
+
+  toogleWish(wish : WishItem) {
+    wish.isComplete = !wish.isComplete;
+    console.log(wish);
+  }
 }
