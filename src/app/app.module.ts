@@ -10,8 +10,6 @@ import { AddWishFormComponent } from './add-wish-form/add-wish-form.component';
   ],
   imports: [
     AppComponent,
-    // AddWishFormComponent,
-    // WishlistComponent,
     CommonModule,
   ],
   bootstrap: [ ]
