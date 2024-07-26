@@ -28,7 +28,8 @@ export class AppComponent {
 
   addNewWish() {
     // add the new created wish
-    console.log(this.newWishText);
+    this.wishes.push(new WishItem(this.newWishText));
+    this.newWishText = '';
   }
 
   toogleWish(wish : WishItem) {
