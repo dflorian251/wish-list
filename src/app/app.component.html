@@ -16,26 +16,42 @@
     </div>
   </form>
 
-  <ng-template #showWishes>
-    <ul class="wish-list" *ngIf="wishes.length > 0">
-      <li class="" *ngFor="let wish of wishes; index as ii">
-        <div class="form-check">
-          <label for="" class="form-check-label">
-            <input
-            type="checkbox"
-            class="checkbox"
-            [checked]="wish.isComplete"
-            [attr.data-index]="ii"
-            (click)="toogleWish(wish)"
-            > {{ wish.wishText }}
-          </label>
-        </div>
-      </li>
-    </ul>
-  </ng-template>
+  <div class="row mt-3">
+    <div class="col-sm-2">
+      <select
+        class="form-select"
+        [(ngModel)]="listFilter"
+        (ngModelChange)="filterChanged($event)"
+      >
+        <option value="0">All</option>
+        <option value="1">Unfulfilled</option>
+        <option value="2">Fulfilled</option>
+      </select>
+    </div>
+  </div>
 
-  <div *ngIf="wishes.length === 0; else showWishes">
-    There are no wishes to display.
+  <div class="row mt-3">
+    <ng-template #showWishes>
+      <ul class="wish-list" *ngIf="visibleWishes.length > 0">
+        <li class="" *ngFor="let wish of visibleWishes; index as ii">
+          <div class="form-check">
+            <label for="" class="form-check-label">
+              <input
+              type="checkbox"
+              class="checkbox"
+              [checked]="wish.isComplete"
+              [attr.data-index]="ii"
+              (click)="toogleWish(wish)"
+              > {{ wish.wishText }}
+            </label>
+          </div>
+        </li>
+      </ul>
+    </ng-template>
+
+    <div *ngIf="wishes.length === 0; else showWishes">
+      There are no wishes to display.
+    </div>
   </div>
 
 </div>
