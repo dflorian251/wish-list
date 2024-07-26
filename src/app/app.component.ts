@@ -1,17 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { WishItem } from '../shared/models/wishItem';
-import { NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { WishlistComponent } from './wishlist/wishlist.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     RouterOutlet,
-    NgFor,
-    NgIf,
     FormsModule,
+    WishlistComponent
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
@@ -26,7 +25,19 @@ export class AppComponent {
   listFilter : String = '0';
   newWishText ='';
   title = 'wish-list';
-  visibleWishes : WishItem[] = this.wishes;
+  // visibleWishes : WishItem[] = this.wishes;
+
+  get visibleWishes() : WishItem[] {
+    let value = this.listFilter;
+
+    if (value === '0') {
+      return this.wishes;
+    } else if (value === '1') {
+      return this.wishes.filter(wish => !wish.isComplete);
+    } else {
+      return this.wishes.filter(wish => wish.isComplete);
+    }
+  }
 
   addNewWish() {
     // add the new created wish
@@ -35,19 +46,6 @@ export class AppComponent {
   }
 
   filterChanged(value : any) {
-    if (value === '0') {
-       this.visibleWishes = this.wishes;
-    } else if (value === '1') {
-      this.visibleWishes = this.wishes.filter(wish => !wish.isComplete);
-    } else {
-      this.visibleWishes = this.wishes.filter(wish => wish.isComplete);
-    }
+
   }
-
-  toogleWish(wish : WishItem) {
-    wish.isComplete = !wish.isComplete;
-    console.log(wish);
-  }
-
-
 }
