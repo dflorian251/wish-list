@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { WishItem } from '../shared/models/wishItem';
 import { FormsModule } from '@angular/forms';
-import { WishlistComponent } from './wishlist/wishlist.component';
-import { AddWishFormComponent } from './add-wish-form/add-wish-form.component';
-import { WishFilterComponent } from './wish-filter/wish-filter.component';
+import { WishlistComponent } from './wish/wishlist/wishlist.component';
+import { AddWishFormComponent } from './wish/add-wish-form/add-wish-form.component';
+import { WishFilterComponent } from './wish/wish-filter/wish-filter.component';
 import events from '../shared/services/EventService';
 
 @Component({
