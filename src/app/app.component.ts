@@ -6,6 +6,7 @@ import { WishlistComponent } from './wish/wishlist/wishlist.component';
 import { AddWishFormComponent } from './wish/add-wish-form/add-wish-form.component';
 import { WishFilterComponent } from './wish/wish-filter/wish-filter.component';
 import events from '../shared/services/EventService';
+import { WishComponent } from "./wish/wish.component";
 
 @Component({
   selector: 'app-root',
@@ -15,24 +16,12 @@ import events from '../shared/services/EventService';
     FormsModule,
     WishlistComponent,
     AddWishFormComponent,
-    WishFilterComponent
-  ],
+    WishFilterComponent,
+    WishComponent
+],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  wishes:  WishItem[] = [
-    new WishItem('Na parw kafe'),
-    new WishItem('Na parw cafeihnh', true),
-    new WishItem('Na parw mia Vespa Primavera', false),
-  ];
 
-  filter : any = () => {};
-
-  constructor() {
-    events.listen('removeWish', (wish : any) => {
-      let index = this.wishes.indexOf(wish);
-      this.wishes.splice(index, 1);
-    })
-  }
 }

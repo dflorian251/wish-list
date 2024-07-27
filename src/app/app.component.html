@@ -1,22 +1,3 @@
-<div class="container">
+<app-wish>
 
-  <add-wish-form
-    (addWish)="wishes.push($event)"
-  ></add-wish-form>
-
-  <div class="row mt-3">
-    <wish-filter
-      (filter)="filter = $event"
-    ></wish-filter>
-  </div>
-
-  <div class="row mt-3">
-    <div class="col-sm-4">
-      <wish-list
-      [wishes]="wishes.filter(filter)"
-      >
-      </wish-list>
-    </div>
-  </div>
-
-</div>
+</app-wish>
