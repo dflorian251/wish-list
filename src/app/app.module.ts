@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { WishModule } from './wish/wish.module';
+import { ContactComponent } from './contact/contact.component';
 
 
 @NgModule({
@@ -10,7 +11,8 @@ import { WishModule } from './wish/wish.module';
   imports: [
     AppComponent,
     CommonModule,
-    WishModule
+    WishModule,
+    ContactComponent,
   ],
   bootstrap: [ ]
 })

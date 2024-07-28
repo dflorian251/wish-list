@@ -7,6 +7,7 @@ import { AddWishFormComponent } from './wish/add-wish-form/add-wish-form.compone
 import { WishFilterComponent } from './wish/wish-filter/wish-filter.component';
 import events from '../shared/services/EventService';
 import { WishComponent } from "./wish/wish.component";
+import { ContactComponent } from "./contact/contact.component";
 
 @Component({
   selector: 'app-root',
@@ -17,7 +18,8 @@ import { WishComponent } from "./wish/wish.component";
     WishlistComponent,
     AddWishFormComponent,
     WishFilterComponent,
-    WishComponent
+    WishComponent,
+    ContactComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
