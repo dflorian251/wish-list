@@ -18,7 +18,7 @@ import { WishComponent } from "./wish/wish.component";
     AddWishFormComponent,
     WishFilterComponent,
     WishComponent
-],
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
