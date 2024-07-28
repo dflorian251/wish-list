@@ -2,6 +2,7 @@ import { NgIf } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
+import { invalidEmailDomain } from './invalidEmailDomaim';
 
 @Component({
   selector: 'app-contact',
@@ -17,7 +18,7 @@ export class ContactComponent {
 
   contactForm = new FormGroup({
     senderName: new FormControl('', Validators.required),
-    senderEmail: new FormControl('', [Validators.required, Validators.email]),
+    senderEmail: new FormControl('', [Validators.required, Validators.email, invalidEmailDomain]),
     senderMessage: new FormControl('', [Validators.required, Validators.minLength(10)]),
   })
 
